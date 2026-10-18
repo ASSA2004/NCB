@@ -1,0 +1,378 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Premium Monochromatic Palette (User Defined) */
+  /* Fluid Typography & Spacing Variables */
+  --fluid-min-width: 375;
+  --fluid-max-width: 1440;
+
+  --fluid-screen: clamp(var(--fluid-min-width) * 1px,
+      100vw,
+      var(--fluid-max-width) * 1px);
+
+  /* LIGHT THEME */
+  --background: #F7F9FC;
+  --foreground: #1C2A35;
+
+  --card: #FFFFFF;
+  --card-foreground: #2E3B4E;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #2E3B4E;
+
+  /* main brand / buttons */
+  --primary: #2A4D69;
+  /* text on primary */
+  --primary-foreground: #F7F9FC;
+
+  --secondary: #4B86B4;
+  --secondary-foreground: #F7F9FC;
+
+  --muted: #E9EFF5;
+  --muted-foreground: #778899;
+
+  --accent: #F18F01;
+  --accent-foreground: #1C2A35;
+
+  --destructive: #D64545;
+  --destructive-foreground: #FDF2F2;
+
+  --border: #D6DFE8;
+  --input: #D6DFE8;
+  --ring: #2A4D69;
+
+  /* charts */
+  --chart-1: #2A4D69;
+  /* primary */
+  --chart-2: #4B86B4;
+  /* secondary */
+  --chart-3: #F18F01;
+  /* accent */
+  --chart-4: #2F9E44;
+  /* success */
+  --chart-5: #E5A000;
+  /* warning */
+
+  --radius: 0.625rem;
+
+  --sidebar: #EFF3F9;
+  --sidebar-foreground: #1C2A35;
+  --sidebar-primary: #2A4D69;
+  --sidebar-primary-foreground: #F7F9FC;
+  --sidebar-accent: #E9EFF5;
+  --sidebar-accent-foreground: #1C2A35;
+  --sidebar-border: #D6DFE8;
+  --sidebar-ring: #2A4D69;
+}
+
+.dark {
+  /* DARK THEME */
+  --background: #0C1A23;
+  --foreground: #CCD9DF;
+
+  --card: #11232E;
+  --card-foreground: #EAF4F8;
+
+  --popover: #11232E;
+  --popover-foreground: #EAF4F8;
+
+  /* bright primary for buttons */
+  --primary: #5FB8D6;
+  /* text on primary */
+  --primary-foreground: #0C1A23;
+
+  --secondary: #4BB5D8;
+  --secondary-foreground: #0C1A23;
+
+  --muted: #142832;
+  --muted-foreground: #8CAAB7;
+
+  --accent: #FFD369;
+  --accent-foreground: #0C1A23;
+
+  --destructive: #FF6F6F;
+  --destructive-foreground: #0C1A23;
+
+  --border: #1E3A47;
+  --input: #1E3A47;
+  --ring: #5FB8D6;
+
+  --chart-1: #5FB8D6;
+  /* primary */
+  --chart-2: #4BB5D8;
+  /* secondary */
+  --chart-3: #FFD369;
+  /* accent */
+  --chart-4: #3BCF7D;
+  /* success */
+  --chart-5: #FFB84D;
+  /* warning */
+
+  --sidebar: #0C1A23;
+  --sidebar-foreground: #EAF4F8;
+  --sidebar-primary: #5FB8D6;
+  --sidebar-primary-foreground: #0C1A23;
+  --sidebar-accent: #142832;
+  --sidebar-accent-foreground: #EAF4F8;
+  --sidebar-border: #1E3A47;
+  --sidebar-ring: #5FB8D6;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-poppins);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Fluid Text Sizes */
+  --text-fluid-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-fluid-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-fluid-xl: clamp(1.25rem, 1.1rem + 1vw, 2rem);
+  --text-fluid-2xl: clamp(1.5rem, 1.3rem + 1.5vw, 2.5rem);
+  --text-fluid-3xl: clamp(2rem, 1.7rem + 2vw, 3.5rem);
+  --text-fluid-4xl: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+  --text-fluid-5xl: clamp(3rem, 2.5rem + 4vw, 6rem);
+  --text-fluid-6xl: clamp(3.75rem, 3rem + 5vw, 8rem);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Enhanced smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Premium section styling with better spacing */
+  section {
+    position: relative;
+    scroll-snap-align: start;
+  }
+
+  /* Morphing logo animations */
+  @keyframes morphFluid {
+    0% {
+      border-radius: 50% 40% 60% 50%;
+      transform: scale(0.5) rotate(0deg);
+      opacity: 0.3;
+    }
+
+    25% {
+      border-radius: 60% 50% 50% 60%;
+      transform: scale(0.7) rotate(90deg);
+      opacity: 0.6;
+    }
+
+    50% {
+      border-radius: 50% 60% 40% 50%;
+      transform: scale(0.9) rotate(180deg);
+      opacity: 0.8;
+    }
+
+    75% {
+      border-radius: 40% 50% 60% 50%;
+      transform: scale(1.1) rotate(270deg);
+      opacity: 0.9;
+    }
+
+    100% {
+      border-radius: 50%;
+      transform: scale(1) rotate(360deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes contractToLogo {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveToHeader {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+      transform: translate(calc(-50vw + 100px), calc(-50vh + 40px)) scale(0.4);
+    }
+  }
+
+  /* Section reveal animations */
+  @keyframes slideUpLayer {
+    from {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeResolve {
+    from {
+      opacity: 0;
+      filter: blur(4px);
+    }
+
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Elegant reveal for section elements */
+  @keyframes slideUpMask {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+      clip-path: inset(100% 0 0 0);
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Added subtle pulse animation for hero gradient text */
+  @keyframes pulse-subtle {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.85;
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+  }
+
+  /* Grid pattern for premium section backgrounds */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
